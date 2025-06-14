@@ -15,3 +15,13 @@ void setup() {
   Serial.begin(9600);
   SPI.begin();
   mfrc522.PCD_Init();
+   lockServo.attach(7); // Attach servo to pin 7
+  lockServo.write(0); // Lock position
+  Serial.println("Place your RFID tag near the reader...");
+}
+
+void loop() {
+  // Look for new cards
+  if (!mfrc522.PICC_IsNewCardPresent() || !mfrc522.PICC_ReadCardSerial()) {
+    return;
+  }
