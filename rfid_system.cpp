@@ -32,3 +32,10 @@ void loop() {
     Serial.print(" ");
   }
   Serial.println();
+  
+  if (isAuthorized(mfrc522.uid.uidByte)) {
+    Serial.println("Access Granted!");
+    unlockDoor();
+  } else {
+    Serial.println("Access Denied!");
+  }
