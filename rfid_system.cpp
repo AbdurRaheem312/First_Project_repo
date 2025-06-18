@@ -39,3 +39,14 @@ void loop() {
   } else {
     Serial.println("Access Denied!");
   }
+
+  rfid.PICC_HaltA();
+  delay(1000);  // Debounce delay
+}
+
+bool isAuthorized(byte *uid) {
+  for (byte i = 0; i < 4; i++) {
+    if (uid[i] != authorizedUID[i]) return false;
+  }
+  return true;
+}
