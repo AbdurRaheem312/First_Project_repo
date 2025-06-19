@@ -50,3 +50,8 @@ bool isAuthorized(byte *uid) {
   }
   return true;
 }
+void unlockDoor() {
+  lockServo.write(90);  // Unlock position
+  delay(5000);          // Keep unlocked for 5 seconds
+  lockServo.write(0);   // Lock again
+}
