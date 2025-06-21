@@ -52,6 +52,6 @@ bool isAuthorized(byte *uid) {
 }
 void unlockDoor() {
   lockServo.write(90);  // Unlock position
-  delay(5000);          // Keep unlocked for 5 seconds
+  delay(6000);          // Keep unlocked for 6 seconds
   lockServo.write(0);   // Lock again
 }
